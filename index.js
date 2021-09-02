@@ -1,8 +1,24 @@
-const { leerInput } = require("./helpers/inquirer")
+const { inquirerMenu,
+    pausa,
+    leerInput,
+    listadoTareasBorrar,
+    confirmar,
+    mostrarListadoCheck} = require("./helpers/inquirer")
 
 const main = async() =>{
-    const texto = await leerInput('Hola: ');
+    let opt;
+    do{
+        opt = await inquirerMenu();
+        switch(opt){
+            case 1:
+                console.log('Selecciono buscar ciudad');
+            break;
 
-    console.log(texto);
+            case 2:
+                console.log('Selecciono historial');
+            break;
+        }
+        await pausa();
+    }while(opt !== 0)
 }
 main();
